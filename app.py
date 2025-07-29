@@ -5,7 +5,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 import plotly.graph_objects as go
 import plotly.express as px
-from transformers import pipeline
+from transformers.pipelines import pipeline
 import torch
 from sklearn.ensemble import RandomForestClassifier
 from datetime import datetime, timedelta
@@ -136,7 +136,7 @@ def fetch_data(ticker, start, end):
     try:
         data = yf.download(ticker, start=start, end=end + timedelta(days=1))
 
-        if data.empty:
+        if data is None or data.empty:
             st.warning("⚠️ No data returned from yfinance.")
             return None
 
@@ -494,7 +494,7 @@ elif analysis_type == "📰 Sentiment Analysis":
             with col1:
                 st.markdown("**Sentiment Breakdown (Pie Chart)**")
                 fig1, ax1 = plt.subplots(figsize=(3, 3))
-                ax1.pie(sentiment_counts, labels=sentiment_counts.index, autopct="%1.1f%%", startangle=140)
+                ax1.pie(sentiment_counts, labels=list(map(str, sentiment_counts.index)), autopct="%1.1f%%", startangle=140)
                 ax1.axis("equal")
                 st.pyplot(fig1, use_container_width=False)
 
