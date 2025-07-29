@@ -3,6 +3,13 @@
 A full-featured, multi-functional stock analysis dashboard built with **Streamlit**.  
 This app empowers users to visualize stock data, analyze market trends, simulate paper trading, and gauge news sentiment using **FinBERT** — all through an intuitive web interface.
 
+## 🔗 Live Demo
+
+👉 [Click here to view the live app](https://stocktrend-analyzer.onrender.com)
+
+Note: App may take ~30 seconds to load due to free hosting (Render cold start).
+
+
 > 🔍 Supports both **US** and **Indian (NSE)** stocks. Candlestick charts, technical indicators, real-time news sentiment, and a portfolio simulator — all in one place.
 
 ---
